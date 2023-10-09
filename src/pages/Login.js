@@ -22,7 +22,7 @@ const Login = () => {
         if (userData) {
           dispatch(storeLogin(userData));
         }
-        navigate("/");
+        navigate("/home");
       }
     } catch (error) {
       setError(error.message);

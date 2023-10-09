@@ -36,13 +36,13 @@ const Header = () => {
 
   return (
     <header className="py-3 shadow-lg border-t-2 border-orange-400">
-      <nav className="flex justify-between text-lg font-bold mx-4 items-center">
-        <div className="font-playball text-3xl text-orange-500 font-bold">
+      <nav className="flex flex-col md:flex-row justify-between text-lg font-bold mx-4 items-center">
+        <div className="font-playball text-2xl md:text-3xl text-orange-500 font-bold">
           <Link to="/">ByteWrite</Link>
         </div>
-        <ul className="flex gap-x-6">
+        <ul className="flex gap-x-6 justify-between">
           {auth.status && (
-            <li className="p-2 text-md font-medium">
+            <li className="p-2 text-md  font-semibold w-40 overflow-hidden text-right ">
               Hi, {auth.userData?.name}
             </li>
           )}
