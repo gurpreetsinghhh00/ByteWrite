@@ -19,7 +19,7 @@ const SignUp = () => {
       const user = await authService.createAccount(data);
       if (user) {
         const userData = await authService.getCurrentUser();
-        if (userData) dispatch(login(userData));
+        if (userData) dispatch(login({ userData }));
         navigate("/");
       }
     } catch (error) {
@@ -28,8 +28,8 @@ const SignUp = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10">
-      <div className="mx-auto w-full max-w-lg  rounded-xl p-8 border border-black/10 shadow-lg bg-white">
+    <div className="flex justify-center items-center py-10 px-2">
+      <div className="mx-auto w-full max-w-sm sm:max-w-md md:max-w-lg  rounded-xl p-8 border border-black/10 shadow-lg bg-white">
         <div className="font-playball text-3xl text-orange-500 font-bold">
           <div className="mb-4 flex justify-center">ByteWrite</div>
         </div>

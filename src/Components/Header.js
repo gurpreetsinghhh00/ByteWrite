@@ -35,17 +35,12 @@ const Header = () => {
   ];
 
   return (
-    <header className="py-3 shadow-lg border-t-2 border-orange-400">
+    <header className="py-3 shadow-lg border-t-2 border-orange-400 w-full">
       <nav className="flex flex-col md:flex-row justify-between text-lg font-bold mx-4 items-center">
         <div className="font-playball text-2xl md:text-3xl text-orange-500 font-bold">
           <Link to="/">ByteWrite</Link>
         </div>
-        <ul className="flex gap-x-6 justify-between">
-          {auth.status && (
-            <li className="p-2 text-md  font-semibold w-40 overflow-hidden text-right ">
-              Hi, {auth.userData?.name}
-            </li>
-          )}
+        <ul className="flex gap-x-3 sm:gap-x-6 justify-between text-sm sm:text-lg">
           {navItems.map((item) => {
             return !item.active ? null : (
               <li
@@ -55,9 +50,12 @@ const Header = () => {
               >
                 {/* <button>{item.name}</button> */}
                 <NavLink
-                  className={({ isActive }) =>
-                    isActive ? "text-orange-500" : " hover:text-orange-500"
-                  }
+                  className="hover:text-orange-500 text-ellipsis w-full min-w-min"
+                  style={({ isActive }) => {
+                    return {
+                      color: isActive ? "#F97316" : " ",
+                    };
+                  }}
                   to={item.url}
                 >
                   {item.name}

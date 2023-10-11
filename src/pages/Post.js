@@ -38,7 +38,7 @@ const Post = () => {
   };
 
   return post ? (
-    <div className="px-4 py-10 w-3/4 m-auto">
+    <div className="md:px-4 py-10  w-[100%] sm:w-[90%] md:w-3/4 m-auto">
       <Container>
         <div className="p-4 bg-white rounded-lg shadow-md">
           <img

@@ -9,23 +9,24 @@ import Shimmer from "../Components/Shimmer";
 
 const AllPost = () => {
   const [posts, setPosts] = useState([]);
-  const [isShimmer, setIsShimmer] = useState(true);
-
+  const [loading, setLoading] = useState(false);
   const userData = useSelector((store) => store.auth.userData);
+
   useEffect(() => {
+    setLoading(true);
     const queries = [Query.equal("userId", userData.$id)];
     databaseService.getUserPosts(queries).then((posts) => {
       if (posts) {
         setPosts(posts.documents);
       }
-      setIsShimmer(false);
+      setLoading(false);
     });
   }, []);
 
-  return isShimmer ? (
+  return loading ? (
     <Shimmer />
   ) : (
-    <div className="p-4">
+    <div className="md:px-4 py-4">
       <Container>
         {posts.length === 0 ? (
           <h1 className="py-10 font-bold text-2xl text-center">

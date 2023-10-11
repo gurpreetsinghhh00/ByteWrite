@@ -20,7 +20,7 @@ const Login = () => {
       if (session) {
         const userData = await authService.getCurrentUser();
         if (userData) {
-          dispatch(storeLogin(userData));
+          dispatch(storeLogin({ userData }));
         }
         navigate("/home");
       }
@@ -30,9 +30,9 @@ const Login = () => {
   };
 
   return (
-    <div className="flex justify-center items-center py-10">
+    <div className="flex justify-center items-center py-10 px-2">
       <div
-        className={`mx-auto bg-white w-full max-w-lg  rounded-xl p-8 border border-black/10 shadow-lg`}
+        className={`mx-auto bg-white w-full max-w-sm sm:max-w-md  md:max-w-lg  rounded-xl p-8 border border-black/10 shadow-lg`}
       >
         <div className="font-playball text-3xl text-orange-500 font-bold">
           <div className="mb-4 flex justify-center">ByteWrite</div>

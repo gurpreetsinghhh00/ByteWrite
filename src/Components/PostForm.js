@@ -87,7 +87,10 @@ const PostForm = ({ post }) => {
   }, [watch, setValue, slugTransform]);
 
   return (
-    <form onSubmit={handleSubmit(submit)} className="flex gap-2 p-2 flex-wrap">
+    <form
+      onSubmit={handleSubmit(submit)}
+      className="flex gap-2 sm:px-2 py-2 flex-wrap"
+    >
       <div className="w-full lg:w-[65%] px-2 space-y-5">
         <Input
           label="Title: "
